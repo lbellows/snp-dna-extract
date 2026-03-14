@@ -1,0 +1,7 @@
+- any pros of using a "real" programming language (nodejs or c#)?
+- SNP_DB should be populated off of variant-list.txt instead of embedded in script
+- genericize the app: categories based what input categories are used in SNP_DB
+- expand the list of snp checks  making sure to add fragile X as one
+- dont add diagnostic info to the output file as this will go through another LLM to parse the results (balance what info is output)
+- create readme: usage + privacy guidelines. consider suggesting running local inference so as not to share your DNA data.
+- extract to out directory with datetime stamp
