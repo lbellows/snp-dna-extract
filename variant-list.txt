@@ -1,72 +1,180 @@
 # ============================================================================
-# ADDITIONAL GENETIC VARIANTS FOR ANALYSIS
+# SNP VARIANT DATABASE
 # ============================================================================
 # Format: rsID|Gene|Category|Description|Risk_Allele|Normal_Allele
+#
+# Categories are derived dynamically — add new ones freely.
+# Lines starting with # are ignored.
 # ============================================================================
 
-# ============================================================================
-# FAMILIAL HYPERCHOLESTEROLEMIA (FH) — TOP PRIORITY
-# These are the most likely explanation for LDL 200+ with family history
-# ============================================================================
-rs28942078|LDLR|FH_LDL|LDLR missense variant — one of the most common familial hypercholesterolemia mutations. Impairs LDL receptor function, causing elevated LDL-C. Autosomal dominant: one copy = significantly elevated LDL and early CVD risk.|T|C
-rs121908026|LDLR|FH_LDL|LDLR frameshift/missense — pathogenic FH variant. Severely reduces LDL receptor expression on liver cells. Heterozygotes typically have LDL 190-400+ mg/dL. Strong predictor of premature coronary artery disease.|A|G
-rs28942082|LDLR|FH_LDL|LDLR FH variant (D206E) — disrupts LDL receptor binding domain. Associated with elevated LDL-C and premature atherosclerosis. Common in European-descent populations.|T|C
-rs688|LDLR|FH_LDL|LDLR exon 12 variant — common polymorphism affecting LDL receptor splicing efficiency. T allele associated with modestly higher LDL-C levels. Not pathogenic FH but contributes to LDL variation.|T|C
-rs5742904|APOB|FH_LDL|APOB R3527Q — second most common cause of familial hypercholesterolemia after LDLR mutations. Reduces binding of LDL particles to LDL receptors by ~70%. Autosomal dominant: one copy = LDL typically 200-300+.|A|G
-rs144467873|APOB|FH_LDL|APOB R3558C — pathogenic FH variant. Impairs APOB-100 binding to LDL receptor. Less common than R3527Q but similarly raises LDL-C significantly.|T|C
-rs11591147|PCSK9|FH_LDL|PCSK9 R46L — loss-of-function variant. PROTECTIVE: reduces LDL-C by ~15% and CAD risk by ~50%. If you carry T allele, your LDL would be even higher without it. Relevant to PCSK9 inhibitor drug decisions.|T|G
+# ── FAVISM / G6PD DEFICIENCY ────────────────────────────────────────────────
+rs1050828|G6PD|FAVISM|G6PD A- variant (Val68Met) — most common cause of G6PD deficiency worldwide. Triggers hemolytic anemia on exposure to fava beans, certain drugs (primaquine, dapsone, sulfonamides), and infections. X-linked: one copy in males = deficient.|T|C
+rs1050829|G6PD|FAVISM|G6PD A variant (Asn126Asp) — often found alongside rs1050828. Alone it causes mild reduction; combined with rs1050828 creates the A- deficiency phenotype.|T|C
+rs5030868|G6PD|FAVISM|G6PD Mediterranean variant (Ser188Phe) — causes severe G6PD deficiency. Common in Mediterranean, Middle Eastern, and North African populations.|T|C
+rs137852328|G6PD|FAVISM|G6PD Canton variant — common in East and Southeast Asian populations. Causes moderate-to-severe deficiency.|A|G
+rs76723693|G6PD|FAVISM|G6PD Mahidol variant — most common G6PD variant in Southeast Asia (especially Myanmar/Thailand). Causes mild-to-moderate deficiency.|A|G
+rs2230037|G6PD|FAVISM|G6PD synonymous tag SNP — does not directly cause deficiency but tags G6PD haplotypes. Useful for inferring G6PD status when causal variants are not on the chip.|A|G
+
+# ── MTHFR / FOLATE METABOLISM ───────────────────────────────────────────────
+rs1801133|MTHFR|MTHFR|MTHFR C677T — TT genotype reduces enzyme activity to ~30% of normal, CT to ~65%. Leads to elevated homocysteine and reduced conversion of folic acid to active methylfolate.|T|C
+rs1801131|MTHFR|MTHFR|MTHFR A1298C — CC genotype causes mild reduction in enzyme activity. Most impactful when compound heterozygous (one copy of C677T + one copy of A1298C together).|G|T
+rs2274976|MTHFR|MTHFR|MTHFR R594Q — rare functional variant that reduces enzyme activity. Less studied than C677T/A1298C but can compound with them.|T|C
+rs17367504|MTHFR region|MTHFR|Near MTHFR — GWAS hit for blood pressure regulation. The A allele is associated with lower blood pressure.|A|G
+
+# ── ALZHEIMER'S / APOE ──────────────────────────────────────────────────────
+rs429358|APOE|ALZHEIMERS|APOE epsilon-4 determinant — this SNP plus rs7412 together determine APOE type (e2/e3/e4). The C allele contributes to the e4 allele, the strongest common genetic risk factor for late-onset Alzheimer's.|C|T
+rs7412|APOE|ALZHEIMERS|APOE epsilon-2 determinant — the T allele contributes to the e2 allele, which is protective against Alzheimer's and associated with longevity. Must be interpreted together with rs429358.|T|C
+
+# ── CARDIOVASCULAR / DIABETES ───────────────────────────────────────────────
+rs1333049|9p21|CARDIOVASCULAR|9p21 locus — strongest and most replicated common genetic risk factor for coronary artery disease. CC genotype carries ~1.6x risk vs GG.|C|G
+rs10757274|9p21|CARDIOVASCULAR|9p21 region — additional tag SNP for the chromosome 9p21 heart disease locus. GG genotype associated with ~1.3x increased CAD risk.|G|A
+rs4977574|9p21|CARDIOVASCULAR|9p21 region — another independent signal at the 9p21 locus for myocardial infarction and coronary artery disease risk.|G|A
+rs1801282|PPARG|CARDIOVASCULAR|PPARG Pro12Ala — the G (Ala) allele is protective against type 2 diabetes. CC (Pro/Pro) is the higher-risk genotype. Affects insulin sensitivity and fat cell differentiation.|G|C
+rs7903146|TCF7L2|CARDIOVASCULAR|TCF7L2 — the single strongest common genetic risk factor for type 2 diabetes. TT genotype carries ~1.7x risk. Affects incretin signaling and insulin secretion.|T|C
+rs12255372|TCF7L2|CARDIOVASCULAR|TCF7L2 secondary signal — TT genotype increases type 2 diabetes risk by ~1.4x. In linkage disequilibrium with rs7903146.|T|G
+rs5186|AGTR1|CARDIOVASCULAR|Angiotensin II receptor A1166C — CC genotype associated with hypertension, aortic stiffness, and increased response to angiotensin.|C|A
+rs1799983|NOS3|CARDIOVASCULAR|eNOS Glu298Asp — TT genotype reduces nitric oxide production, associated with endothelial dysfunction, hypertension, and coronary spasm.|T|G
+rs662|PON1|CARDIOVASCULAR|Paraoxonase Q192R — affects ability to break down oxidized lipids and organophosphate pesticides. AA genotype has lower enzyme activity.|A|G
+
+# ── CLOTTING / THROMBOPHILIA ────────────────────────────────────────────────
+rs6025|F5|CLOTTING|Factor V Leiden — the most common inherited thrombophilia in people of European descent. A single copy (AG) increases venous clot risk ~5x; two copies (AA) increase risk ~50x.|A|G
+rs1799963|F2|CLOTTING|Prothrombin G20210A — second most common inherited clotting disorder. AG genotype increases venous thrombosis risk ~3x. Compounds with Factor V Leiden.|A|G
+rs8176719|ABO|CLOTTING|ABO blood type determinant — helps determine O vs non-O blood type. Non-O blood types (A, B, AB) have ~1.5x higher risk of venous thrombosis and higher von Willebrand factor levels.|—|—
+
+# ── CANCER RISK VARIANTS ────────────────────────────────────────────────────
+rs80357906|BRCA2|CANCER|BRCA2 pathogenic variant — if present, significantly increases lifetime risk of breast (~45-70%) and ovarian (~10-20%) cancer, plus elevated prostate and pancreatic cancer risk.|—|—
+rs28897696|BRCA2|CANCER|BRCA2 pathogenic variant — another known deleterious BRCA2 mutation.|—|—
+rs80357713|BRCA1|CANCER|BRCA1 pathogenic variant — if present, lifetime breast cancer risk ~55-70%, ovarian ~40-45%.|—|—
+rs16942|BRCA1|CANCER|BRCA1 common polymorphism (K1183R) — very common, generally benign. Used as a tag SNP for BRCA1 haplotype analysis. Does NOT indicate BRCA1 mutation on its own.|T|C
+rs1042522|TP53|CANCER|p53 Pro72Arg — the Arg (G) allele is more efficient at inducing apoptosis, while Pro (C) is better at DNA repair/cell cycle arrest. Context-dependent cancer associations.|C|G
+rs61764370|KRAS|CANCER|KRAS-variant — the T allele disrupts a let-7 microRNA binding site, associated with increased risk of non-small cell lung cancer (especially in never-smokers) and ovarian cancer.|T|G
+rs1800566|NQO1|CANCER|NQO1 Pro187Ser — TT genotype has near-zero NQO1 enzyme activity, reducing ability to detoxify quinones (benzene metabolites, some chemo drugs).|T|C
+
+# ── PHARMACOGENOMICS (DRUG RESPONSE) ───────────────────────────────────────
+rs4244285|CYP2C19|PHARMACOGENOMICS|CYP2C19*2 — the most common loss-of-function allele. Carriers are poor metabolizers of clopidogrel (Plavix), some SSRIs, and PPIs. FDA black box warning on clopidogrel for poor metabolizers.|A|G
+rs4986893|CYP2C19|PHARMACOGENOMICS|CYP2C19*3 — another loss-of-function allele, more common in East Asian populations. Same drug implications as *2.|A|G
+rs12248560|CYP2C19|PHARMACOGENOMICS|CYP2C19*17 — gain-of-function allele creating ultra-rapid metabolism. Increased clopidogrel activation; may need higher doses of PPIs and some SSRIs.|T|C
+rs28399504|CYP2C19|PHARMACOGENOMICS|CYP2C19*4 — rare loss-of-function variant. Same clinical impact as *2 and *3 when present.|A|G
+rs1065852|CYP2D6|PHARMACOGENOMICS|CYP2D6*10 — reduced-function allele. Affects metabolism of codeine, tamoxifen, many antidepressants, beta-blockers, and antipsychotics.|A|G
+rs3892097|CYP2D6|PHARMACOGENOMICS|CYP2D6*4 — the most common non-functional CYP2D6 allele in Europeans (~20% carrier rate). Affects ~25% of all prescribed drugs.|A|G
+rs1799853|CYP2C9|PHARMACOGENOMICS|CYP2C9*2 — reduced-function allele. Affects warfarin dosing, NSAID metabolism, and some oral hypoglycemics.|T|C
+rs1057910|CYP2C9|PHARMACOGENOMICS|CYP2C9*3 — more severely reduced function than *2. Strongest impact on warfarin dosing.|C|A
+rs9923231|VKORC1|PHARMACOGENOMICS|VKORC1 -1639G>A — the single biggest genetic determinant of warfarin dose. AA genotype needs ~50% less warfarin than GG.|A|G
+rs1045642|ABCB1|PHARMACOGENOMICS|MDR1/P-glycoprotein C3435T — affects drug absorption and brain penetration. TT genotype has lower P-gp expression, meaning higher bioavailability of many drugs.|T|C
+rs776746|CYP3A5|PHARMACOGENOMICS|CYP3A5*3 — the most common non-expressing allele. Non-expressers metabolize tacrolimus slowly, needing lower immunosuppressant doses post-transplant.|T|C
+
+# ── IMMUNE / AUTOIMMUNE ────────────────────────────────────────────────────
+rs2187668|HLA-DQ2.5|IMMUNE|HLA-DQ2.5 — the strongest genetic risk factor for celiac disease. ~95% of celiac patients carry DQ2.5 or DQ8. ~30% of the general population carries it too, so it is necessary but not sufficient.|T|C
+rs7454108|HLA-DQ8|IMMUNE|HLA-DQ8 tag — second major celiac risk haplotype, also a risk factor for type 1 diabetes.|C|T
+rs2395029|HLA-B*5701|IMMUNE|HLA-B*5701 tag — pharmacogenomic screening marker. Carriers must NEVER take abacavir (HIV drug) due to severe hypersensitivity reaction risk.|G|T
+rs3135388|HLA-DRB1*1501|IMMUNE|HLA-DRB1*1501 tag — the strongest genetic risk factor for multiple sclerosis. AA genotype associated with ~3x increased risk.|A|G
+rs2476601|PTPN22|IMMUNE|PTPN22 R620W — a master variant for autoimmunity. The A allele increases risk for type 1 diabetes, rheumatoid arthritis, lupus, Hashimoto thyroiditis, and Graves disease.|A|G
+rs12722489|IL2RA|IMMUNE|IL-2 receptor alpha — risk variant for multiple sclerosis and type 1 diabetes. Affects regulatory T cell function and immune tolerance.|A|G
+rs11209026|IL23R|IMMUNE|IL-23 receptor R381Q — the A allele is PROTECTIVE against Crohn disease, psoriasis, and ankylosing spondylitis.|A|G
+rs2104286|IL2RA|IMMUNE|IL-2 receptor alpha (second signal) — autoimmune disease susceptibility, particularly MS and T1D.|A|G
+
+# ── METABOLISM ──────────────────────────────────────────────────────────────
+rs4988235|LCT/MCM6|METABOLISM|Lactase persistence — the A allele allows continued lactose digestion in adulthood (dominant). GG = lactose intolerant (the ancestral state).|A|G
+rs182549|LCT/MCM6|METABOLISM|Lactase persistence European tag — T allele = lactase persistent. CC = likely lactose intolerant. Highly correlated with rs4988235 in European populations.|T|C
+rs1801394|MTRR|METABOLISM|MTRR A66G — methionine synthase reductase. GG genotype reduces B12 recycling efficiency, increasing homocysteine.|G|A
+rs1805087|MTR|METABOLISM|MTR A2756G — methionine synthase. GG genotype may increase homocysteine by reducing methionine synthase activity. Part of the folate/B12/methylation cycle.|G|A
+rs602662|FUT2|METABOLISM|FUT2 secretor status — affects whether you secrete blood type antigens in saliva and gut mucus. Non-secretors have different gut microbiome composition and lower B12 absorption but higher norovirus resistance.|A|G
+rs601338|FUT2|METABOLISM|FUT2 nonsecretor (W143X) — AA genotype = nonsecretor. ~20% of Europeans. Resistant to most norovirus strains.|A|G
+rs1800562|HFE|METABOLISM|HFE C282Y — the primary hereditary hemochromatosis mutation. AA = homozygous, high risk of iron overload. AG = carrier. Most common in Northern European descent.|A|G
+rs1799945|HFE|METABOLISM|HFE H63D — milder hemochromatosis variant. GG homozygotes have slight iron overload risk. Compound heterozygotes (C282Y + H63D) have moderate risk.|G|C
+
+# ── NUTRITION / VITAMINS ────────────────────────────────────────────────────
+rs12934922|BCMO1|NUTRITION|Beta-carotene monooxygenase — TT genotype reduces conversion of beta-carotene to vitamin A by ~50%.|T|A
+rs7501331|BCMO1|NUTRITION|Beta-carotene conversion (second variant) — TT genotype further reduces carotenoid conversion. Combined with rs12934922 can reduce conversion by up to 70%.|T|C
+rs2282679|GC|NUTRITION|Vitamin D binding protein (GC/DBP) — CC genotype associated with significantly lower circulating 25(OH)D levels.|C|A
+rs10741657|CYP2R1|NUTRITION|Vitamin D 25-hydroxylase — AA genotype reduces the liver enzyme that activates vitamin D.|A|G
+rs1544410|VDR|NUTRITION|Vitamin D receptor BsmI — AA genotype may reduce vitamin D signaling efficiency at the cellular level even with adequate blood levels.|A|G
+rs7946|PEMT|NUTRITION|PEMT V175M — TT genotype increases dietary choline requirement substantially. Choline is critical for liver function, brain development, and methylation.|T|C
+rs174547|FADS1|NUTRITION|Fatty acid desaturase 1 — CC genotype is more efficient at converting plant omega-3 (ALA) to EPA/DHA. TT genotype may benefit more from direct fish oil/DHA supplementation.|C|T
+
+# ── DETOXIFICATION ──────────────────────────────────────────────────────────
+rs4680|COMT|DETOX|COMT Val158Met — GG (Val/Val) = fast dopamine breakdown. AA (Met/Met) = slow breakdown. AG = intermediate.|A|G
+rs1695|GSTP1|DETOX|GSTP1 Ile105Val — GG (Val/Val) has reduced glutathione conjugation activity, impairing phase II detoxification of carcinogens, heavy metals, and environmental toxins.|G|A
+rs1056836|CYP1B1|DETOX|CYP1B1 Leu432Val — CC (Val/Val) has higher enzyme activity, producing more 4-OH estrogen metabolites (potentially genotoxic).|C|G
+rs762551|CYP1A2|DETOX|CYP1A2*1F — AA genotype = fast caffeine metabolizer. AC/CC = slow metabolizer. Affects caffeine, melatonin, and some drug metabolism.|C|A
+
+# ── MENTAL HEALTH / NEUROTRANSMITTERS ───────────────────────────────────────
+rs6265|BDNF|MENTAL_HEALTH|BDNF Val66Met — TT (Met/Met) significantly reduces activity-dependent BDNF secretion, affecting neuroplasticity, memory, and recovery from depression.|T|C
+rs4570625|TPH2|MENTAL_HEALTH|Tryptophan hydroxylase 2 — TT genotype reduces serotonin synthesis in the brain. Associated with increased anxiety, emotional reactivity, and amygdala activation.|T|G
+rs53576|OXTR|MENTAL_HEALTH|Oxytocin receptor — AA genotype associated with lower empathy scores, reduced social sensitivity, but potentially greater resilience to social stress.|A|G
+rs1800497|DRD2/ANKK1|MENTAL_HEALTH|Taq1A (DRD2) — AA (A1/A1) genotype has ~30% fewer D2 dopamine receptors. Associated with increased risk of addictive behaviors and reward-seeking.|A|G
+rs6311|HTR2A|MENTAL_HEALTH|Serotonin 2A receptor -1438A/G — TT genotype associated with altered serotonin signaling, may affect antidepressant response (especially SSRIs).|T|C
+rs25531|SLC6A4|MENTAL_HEALTH|5-HTTLPR related — this SNP modifies the serotonin transporter long/short allele expression. G allele effectively converts L allele to function like S allele (lower serotonin reuptake).|G|A
+
+# ── FAMILIAL HYPERCHOLESTEROLEMIA ───────────────────────────────────────────
+rs28942078|LDLR|FH_LDL|LDLR missense variant — one of the most common familial hypercholesterolemia mutations. Impairs LDL receptor function, causing elevated LDL-C. Autosomal dominant.|T|C
+rs121908026|LDLR|FH_LDL|LDLR frameshift/missense — pathogenic FH variant. Severely reduces LDL receptor expression on liver cells. Heterozygotes typically have LDL 190-400+ mg/dL.|A|G
+rs28942082|LDLR|FH_LDL|LDLR FH variant (D206E) — disrupts LDL receptor binding domain. Associated with elevated LDL-C and premature atherosclerosis.|T|C
+rs688|LDLR|FH_LDL|LDLR exon 12 variant — common polymorphism affecting LDL receptor splicing efficiency. T allele associated with modestly higher LDL-C levels.|T|C
+rs5742904|APOB|FH_LDL|APOB R3527Q — second most common cause of familial hypercholesterolemia after LDLR mutations. Reduces binding of LDL particles to LDL receptors by ~70%.|A|G
+rs144467873|APOB|FH_LDL|APOB R3558C — pathogenic FH variant. Impairs APOB-100 binding to LDL receptor.|T|C
+rs11591147|PCSK9|FH_LDL|PCSK9 R46L — loss-of-function variant. PROTECTIVE: reduces LDL-C by ~15% and CAD risk by ~50%.|T|G
 rs505151|PCSK9|FH_LDL|PCSK9 E670G — gain-of-function variant. Increases PCSK9 activity, accelerating LDL receptor degradation. Associated with higher LDL-C and increased CAD risk.|G|A
-rs28362286|PCSK9|FH_LDL|PCSK9 gain-of-function variant — rare but potent. Dramatically increases LDL-C. Identified in families with severe hypercholesterolemia resistant to statin therapy.|T|C
+rs28362286|PCSK9|FH_LDL|PCSK9 gain-of-function variant — rare but potent. Dramatically increases LDL-C.|T|C
 
-# ============================================================================
-# LIPOPROTEIN(a) — INDEPENDENT CVD RISK FACTOR, UNDERTESTED
-# Lp(a) is genetically determined, doesn't respond to statins
-# ============================================================================
-rs10455872|LPA|LP_A_CVD|LPA variant — strongly associated with elevated Lp(a) levels. Each G allele raises Lp(a) ~3-4x. High Lp(a) is an independent risk factor for heart attack, stroke, and aortic valve calcification. Not lowered by statins. Affects ~20% of population.|G|A
-rs3798220|LPA|LP_A_CVD|LPA variant — associated with elevated Lp(a) and small, dense Lp(a) particles (more atherogenic). Each C allele significantly increases CVD risk. PCSK9 inhibitors and emerging therapies (olpasiran) can lower Lp(a).|C|T
+# ── LIPOPROTEIN(a) ─────────────────────────────────────────────────────────
+rs10455872|LPA|LP_A_CVD|LPA variant — strongly associated with elevated Lp(a) levels. Each G allele raises Lp(a) ~3-4x. High Lp(a) is an independent risk factor for heart attack, stroke, and aortic valve calcification. Not lowered by statins.|G|A
+rs3798220|LPA|LP_A_CVD|LPA variant — associated with elevated Lp(a) and small, dense Lp(a) particles (more atherogenic). Each C allele significantly increases CVD risk.|C|T
 
-# ============================================================================
-# STATIN PHARMACOGENOMICS — CRITICAL SINCE YOU'RE NOW ON A STATIN
-# ============================================================================
-rs4149056|SLCO1B1|STATIN_SAFETY|SLCO1B1*5 (Val174Ala) — THE most important pharmacogenomic variant for statin users. C allele impairs hepatic uptake of statins, increasing blood levels and risk of myopathy/rhabdomyolysis. Highest risk with simvastatin. CC genotype = 18x increased myopathy risk. TC = 4x risk. If positive, dose reduction or switching statins recommended.|C|T
-rs4149015|SLCO1B1|STATIN_SAFETY|SLCO1B1*1B haplotype tag — affects statin transport into liver. May modify statin efficacy and side effect risk. Interacts with rs4149056 to determine overall SLCO1B1 function.|G|A
-rs2231142|ABCG2|STATIN_SAFETY|ABCG2 Q141K — reduces efflux transporter function. Increases blood levels of rosuvastatin significantly (up to 2x). If on rosuvastatin, may need dose adjustment. Also affects atorvastatin to lesser degree.|A|C
-rs1799853|CYP2C9|STATIN_SAFETY|CYP2C9*2 — reduced function allele. Affects metabolism of fluvastatin and to lesser extent other statins. Important given your CYP2C19 poor metabolizer status — knowing CYP2C9 status helps map your full drug metabolism profile.|T|C
-rs1057910|CYP2C9|STATIN_SAFETY|CYP2C9*3 — poor function allele. More severe than *2. Significantly slows metabolism of fluvastatin, losartan, warfarin, and NSAIDs. Combined with your CYP2C19 status, this paints a fuller picture of hepatic drug metabolism.|C|A
-rs17238484|HMGCR|STATIN_RESPONSE|HMGCR variant — predicts magnitude of LDL reduction from statin therapy. T allele associated with greater LDL lowering per statin dose. Helps determine if you're a strong or weak statin responder.|T|G
-rs12916|HMGCR|STATIN_RESPONSE|HMGCR regulatory variant — each T allele associated with ~2-3 mg/dL lower LDL-C and proportional reduction in CAD risk. Proxy for statin benefit — if you carry risk alleles, statins likely to be more effective.|T|C
-rs20455|KIF6|STATIN_RESPONSE|KIF6 Trp719Arg — controversial but some evidence that carriers of risk allele derive greater cardiovascular benefit from statin therapy (particularly pravastatin and atorvastatin). Not universally accepted but low cost to test.|G|A
+# ── STATIN SAFETY ───────────────────────────────────────────────────────────
+rs4149056|SLCO1B1|STATIN_SAFETY|SLCO1B1*5 (Val174Ala) — C allele impairs hepatic uptake of statins, increasing blood levels and risk of myopathy/rhabdomyolysis. CC genotype = 18x increased myopathy risk. TC = 4x risk.|C|T
+rs4149015|SLCO1B1|STATIN_SAFETY|SLCO1B1*1B haplotype tag — affects statin transport into liver. May modify statin efficacy and side effect risk.|G|A
+rs2231142|ABCG2|STATIN_SAFETY|ABCG2 Q141K — reduces efflux transporter function. Increases blood levels of rosuvastatin significantly (up to 2x).|A|C
 
-# ============================================================================
-# CORONARY ARTERY DISEASE RISK LOCI — INDEPENDENT OF CHOLESTEROL
-# ============================================================================
-rs1333049|CDKN2A/9p21|CAD_RISK|9p21.3 locus — strongest and most replicated genetic risk factor for coronary artery disease independent of traditional risk factors (cholesterol, BP, diabetes). C allele increases CAD risk ~25-30% per copy. Affects vascular smooth muscle and plaque stability.|C|G
-rs4977574|CDKN2A/9p21|CAD_RISK|9p21.3 CAD variant — in linkage disequilibrium with rs1333049. G allele independently associated with myocardial infarction risk. This locus operates through vascular inflammation and cell cycle regulation, not lipids.|G|A
-rs12526453|PHACTR1|CAD_RISK|PHACTR1 6p24 — associated with coronary artery disease and cervical artery dissection. C allele increases CAD risk. This gene regulates endothelial function and vascular tone.|C|G
-rs646776|SORT1/CELSR2|CAD_RISK|1p13.3 locus — affects hepatic VLDL secretion and LDL-C levels. T allele associated with higher LDL and increased CAD risk. One of the strongest common genetic determinants of LDL variation beyond FH genes.|T|C
-rs6725887|WDR12|CAD_RISK|WDR12 2q33 — associated with myocardial infarction risk independent of lipid levels. Mechanism involves ribosome biogenesis and cellular stress response in vasculature.|C|T
+# ── STATIN RESPONSE ─────────────────────────────────────────────────────────
+rs17238484|HMGCR|STATIN_RESPONSE|HMGCR variant — predicts magnitude of LDL reduction from statin therapy. T allele associated with greater LDL lowering per statin dose.|T|G
+rs12916|HMGCR|STATIN_RESPONSE|HMGCR regulatory variant — each T allele associated with ~2-3 mg/dL lower LDL-C and proportional reduction in CAD risk. Proxy for statin benefit.|T|C
+rs20455|KIF6|STATIN_RESPONSE|KIF6 Trp719Arg — some evidence that carriers of risk allele derive greater cardiovascular benefit from statin therapy (particularly pravastatin and atorvastatin).|G|A
+
+# ── CORONARY ARTERY DISEASE RISK ────────────────────────────────────────────
+rs12526453|PHACTR1|CAD_RISK|PHACTR1 6p24 — associated with coronary artery disease and cervical artery dissection. C allele increases CAD risk.|C|G
+rs646776|SORT1/CELSR2|CAD_RISK|1p13.3 locus — affects hepatic VLDL secretion and LDL-C levels. T allele associated with higher LDL and increased CAD risk.|T|C
+rs6725887|WDR12|CAD_RISK|WDR12 2q33 — associated with myocardial infarction risk independent of lipid levels.|C|T
 rs9982601|SLC22A3/LPAL2|CAD_RISK|6q26-27 locus — near LPA gene. Associated with MI risk. May interact with Lp(a) levels to modify cardiovascular risk.|T|C
 
-# ============================================================================
-# LIPID METABOLISM — HDL, TRIGLYCERIDES, PARTICLE SIZE
-# ============================================================================
-rs708272|CETP|LIPID_METABOLISM|CETP TaqIB — affects cholesteryl ester transfer protein activity. B2 (A) allele associated with higher HDL-C and potentially lower CVD risk. B1 (G) allele = more CETP activity = lower HDL, more small dense LDL.|G|A
-rs1800588|LIPC|LIPID_METABOLISM|Hepatic lipase promoter variant — T allele reduces hepatic lipase activity, associated with higher HDL-C and larger LDL particles (favorable). C allele = smaller, denser LDL particles (unfavorable).|C|T
-rs662799|APOA5|LIPID_METABOLISM|APOA5 -1131T>C — C allele strongly associated with elevated triglycerides (30-40% increase per copy). If positive, dietary fat modification and fish oil become more important.|C|T
-rs964184|ZPR1/APOA5|LIPID_METABOLISM|11q23.3 triglyceride locus — G allele associated with elevated triglycerides and increased CAD risk. Responds well to omega-3 supplementation and dietary modification.|G|C
-rs1260326|GCKR|LIPID_METABOLISM|GCKR P446L — T allele associated with higher triglycerides but lower fasting glucose (metabolic tradeoff). Affects hepatic glucose and lipid metabolism.|T|C
+# ── LIPID METABOLISM ────────────────────────────────────────────────────────
+rs708272|CETP|LIPID_METABOLISM|CETP TaqIB — affects cholesteryl ester transfer protein activity. B2 (A) allele associated with higher HDL-C. B1 (G) allele = more CETP activity = lower HDL, more small dense LDL.|G|A
+rs1800588|LIPC|LIPID_METABOLISM|Hepatic lipase promoter variant — T allele reduces hepatic lipase activity, associated with higher HDL-C and larger LDL particles. C allele = smaller, denser LDL particles.|C|T
+rs662799|APOA5|LIPID_METABOLISM|APOA5 -1131T>C — C allele strongly associated with elevated triglycerides (30-40% increase per copy).|C|T
+rs964184|ZPR1/APOA5|LIPID_METABOLISM|11q23.3 triglyceride locus — G allele associated with elevated triglycerides and increased CAD risk.|G|C
+rs1260326|GCKR|LIPID_METABOLISM|GCKR P446L — T allele associated with higher triglycerides but lower fasting glucose (metabolic tradeoff).|T|C
 rs780094|GCKR|LIPID_METABOLISM|GCKR regulatory variant — associated with triglyceride levels and type 2 diabetes risk. In linkage disequilibrium with rs1260326.|T|C
-rs328|LPL|LIPID_METABOLISM|LPL S447X — PROTECTIVE gain-of-function variant. G allele increases lipoprotein lipase activity, lowering triglycerides and raising HDL. If present, favorable lipid profile modifier.|G|C
-rs1801177|LPL|LIPID_METABOLISM|LPL D9N — loss-of-function variant. A allele reduces lipoprotein lipase activity, raising triglycerides. May contribute to mixed dyslipidemia.|A|G
+rs328|LPL|LIPID_METABOLISM|LPL S447X — PROTECTIVE gain-of-function variant. G allele increases lipoprotein lipase activity, lowering triglycerides and raising HDL.|G|C
+rs1801177|LPL|LIPID_METABOLISM|LPL D9N — loss-of-function variant. A allele reduces lipoprotein lipase activity, raising triglycerides.|A|G
 
-# ============================================================================
-# BLOOD PRESSURE / HYPERTENSION — COMPOUNDS CVD RISK
-# ============================================================================
-rs699|AGT|BLOOD_PRESSURE|AGT M235T — T allele associated with higher angiotensinogen levels and increased hypertension risk. Interacts with sodium intake — salt sensitivity is partly genetic.|T|C
-rs4340|ACE|BLOOD_PRESSURE|ACE insertion/deletion proxy — D allele (often represented by deletion) associated with higher ACE activity, increased blood pressure, and left ventricular hypertrophy. Affects ACE inhibitor response.|D|I
-rs5186|AGTR1|BLOOD_PRESSURE|AGTR1 A1166C — C allele associated with increased sensitivity to angiotensin II, higher blood pressure, and arterial stiffness. May influence response to ARB medications.|C|A
+# ── BLOOD PRESSURE ──────────────────────────────────────────────────────────
+rs699|AGT|BLOOD_PRESSURE|AGT M235T — T allele associated with higher angiotensinogen levels and increased hypertension risk. Interacts with sodium intake.|T|C
+rs4340|ACE|BLOOD_PRESSURE|ACE insertion/deletion proxy — D allele associated with higher ACE activity, increased blood pressure, and left ventricular hypertrophy.|D|I
 
-# ============================================================================
-# INFLAMMATION MARKERS — RELEVANT TO PLAQUE INSTABILITY
-# ============================================================================
-rs1205|CRP|INFLAMMATION|CRP variant — affects baseline C-reactive protein levels. Higher CRP = chronic low-grade inflammation = increased CVD risk independent of chol
+# ── INFLAMMATION ────────────────────────────────────────────────────────────
+rs1205|CRP|INFLAMMATION|CRP variant — affects baseline C-reactive protein levels. Higher CRP = chronic low-grade inflammation = increased CVD risk independent of cholesterol. T allele associated with lower CRP.|T|C
+
+# ── FRAGILE X ───────────────────────────────────────────────────────────────
+# NOTE: Fragile X syndrome is caused by CGG trinucleotide repeat expansion in
+# FMR1, which SNP chips cannot directly detect. These tag SNPs are in the FMR1
+# region and may indicate haplotype background but CANNOT confirm or rule out
+# Fragile X. Definitive testing requires specialized repeat-length assays.
+rs4824526|FMR1 region|FRAGILE_X|FMR1 region tag SNP — located near the FMR1 gene on Xq27.3. May tag haplotype backgrounds associated with CGG repeat instability. Cannot detect repeat expansion directly.|A|G
+rs25714|FMR1 region|FRAGILE_X|FMR1 region tag SNP — another marker in the Xq27.3 fragile X locus. Useful for haplotype analysis but not diagnostic for CGG repeat expansion.|T|C
+rs29282|FMR1 region|FRAGILE_X|FMR1 flanking marker — used in linkage studies for fragile X syndrome. Informative for family segregation analysis but not a direct test for the expansion.|A|G
+
+# -- NIEMANN-PICK
+rs120074119|SMPD1|NIEMANN_PICK|Niemann-Pick A — L302P missense mutation. One of the most common Type A mutations in Ashkenazi Jewish populations. Homozygous = severe infantile neurovisceral disease. Carrier frequency ~1/80 in Ashkenazi Jews.|A|G
+rs120074120|SMPD1|NIEMANN_PICK|Niemann-Pick A — fsP330 (R496L). Ashkenazi Jewish founder mutation for Type A. Causes complete loss of acid sphingomyelinase activity.|T|C
+rs120074122|SMPD1|NIEMANN_PICK|Niemann-Pick B — deltaR608 (R608del). Most common Type B mutation. Type B is the non-neuronopathic form with lung and liver involvement but typically no CNS disease. Onset in childhood, variable severity.|—|—
+rs1050228|SMPD1|NIEMANN_PICK|SMPD1 common coding variant (V36A) — relatively common polymorphism in the acid sphingomyelinase gene. May modestly affect enzyme activity. Useful as a tag SNP for SMPD1 haplotypes.|G|T
+rs1050239|SMPD1|NIEMANN_PICK|SMPD1 G508R — missense variant associated with reduced sphingomyelinase activity. Reported in some Niemann-Pick B cases. May contribute to disease in compound heterozygotes.|G|A
+rs140504912|SMPD1|NIEMANN_PICK|SMPD1 H421Y — pathogenic variant associated with Niemann-Pick Type A/B. Reduced enzyme activity.|T|C
+rs80358259|NPC1|NIEMANN_PICK|Niemann-Pick C1 — I1061T. The single most common NPC1 mutation in Western European populations, accounting for ~15-20% of NPC alleles. Causes cholesterol trafficking defect leading to progressive neurodegeneration, hepatosplenomegaly, and vertical gaze palsy.|T|C
+rs80358254|NPC1|NIEMANN_PICK|Niemann-Pick C1 — P1007A. Second most common NPC1 mutation. Associated with later-onset (juvenile/adult) NPC with slower neurological progression.|G|C
+rs149770345|NPC1|NIEMANN_PICK|NPC1 missense variant — reported in Niemann-Pick C cases. Disrupts cholesterol transport in late endosomes/lysosomes.|A|G
+rs1805081|NPC1|NIEMANN_PICK|NPC1 H215R — common polymorphism in NPC1 gene. Associated with obesity and cholesterol metabolism in GWAS studies. Not pathogenic for NPC but indicates NPC1 is on the chip and functional variation exists.|A|G
+rs1788799|NPC1|NIEMANN_PICK|NPC1 common variant — associated with BMI and lipid metabolism in population studies. Tag SNP useful for confirming NPC1 coverage on the array.|A|G
+rs80358257|NPC1|NIEMANN_PICK|NPC1 G992W — pathogenic variant causing Niemann-Pick C. Disrupts NPC1 sterol-sensing domain.|T|G
+rs104895322|NPC2|NIEMANN_PICK|Niemann-Pick C2 — pathogenic variant in NPC2 gene. NPC2 mutations account for ~5% of Niemann-Pick C cases. Same clinical presentation as NPC1 mutations.|—|—
+rs80358255|NPC1|NIEMANN_PICK|NPC1 A927V — variant of uncertain significance to likely pathogenic. Reported in late-onset NPC cases.|T|C
